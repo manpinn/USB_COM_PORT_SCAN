@@ -7,6 +7,23 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-
+        <Grid.RowDefinitions>
+            <RowDefinition Height="50"></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
+        </Grid.RowDefinitions>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"></ColumnDefinition>
+        </Grid.ColumnDefinitions>
+        <Button x:Name="btn_scan" Grid.Row="0" Grid.Column="0" HorizontalAlignment="Center" VerticalAlignment="Center" Width="200" Content="SCAN" Click="ButtonClicked" />
+        <ListView x:Name="lv_usb_com_ports" Grid.Row="1" Grid.Column="0">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn Header="Device ID" Width="200" DisplayMemberBinding="{Binding DeviceID}" />
+                    <GridViewColumn Header="PNP Device ID" Width="200" DisplayMemberBinding="{Binding PNPDeviceID}" />
+                    <GridViewColumn Header="Description" Width="300" DisplayMemberBinding="{Binding Description}" />
+                    <GridViewColumn Header="USB Port" Width="100" DisplayMemberBinding="{Binding UsbPort}" />
+                </GridView>
+            </ListView.View>
+        </ListView>
     </Grid>
 </Window>
